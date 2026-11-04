@@ -12,10 +12,14 @@ Fourier series of d(t) pushed through P(jw):
 Run with:  uv run input_filter_design.py
 """
 
+import sys
+from pathlib import Path
+
 import matplotlib.pyplot as plt
 import numpy as np
 
-import bode as b
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))  # repo root, for bode.py
+import bode as b  # noqa: E402
 
 D0 = 0.512  # duty ratio for v0 = 6 V, paper Eq. (26)
 K = 40  # number of PWM harmonics
